@@ -28,7 +28,7 @@
     }),
 
     mounted() {
-      fetch(`https://swapi.co/api/films/${this.$route.params.id}`)
+      fetch(`https://swapi.dev/api/films/${this.$route.params.id}`)
         .then(response => response.json())
         .then(result => result.species.forEach(x => {
           fetch(x)

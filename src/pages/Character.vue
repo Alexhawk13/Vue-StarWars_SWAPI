@@ -16,31 +16,35 @@
 </template>
 
 <script>
-  export default {
-    name: 'Character',
-    data: () => ({
-      characters: [],
-      search: "",
-      index: '',
-    }),
+export default {
+  name: "Character",
+  data: () => ({
+    characters: [],
+    search: "",
+    index: ""
+  }),
 
-    mounted() {
-      fetch(`https://swapi.co/api/films/${this.$route.params.id}`)
-        .then(response => response.json())
-        .then(result => result.characters.forEach(x => {
+  mounted() {
+    fetch(`https://swapi.dev/api/films/${this.$route.params.id}`)
+      .then(response => response.json())
+      .then(result =>
+        result.characters.forEach(x => {
           fetch(x)
-          .then(response => response.json())
-          .then(result => this.characters.push(result)
-        )}))
-    },
-    computed: {
-      filteredList() {
-        return this.characters.filter(character => character.name.toLowerCase().includes(this.search.toLowerCase().trim()))
-      }
+            .then(response => response.json())
+            .then(result => this.characters.push(result));
+        })
+      );
+  },
+  computed: {
+    filteredList() {
+      return this.characters.filter(character =>
+        character.name.toLowerCase().includes(this.search.toLowerCase().trim())
+      );
     }
   }
+};
 </script>
 
 <style lang="sass" scoped>
- @import '../styles/search'
+@import '../styles/search'
 </style>

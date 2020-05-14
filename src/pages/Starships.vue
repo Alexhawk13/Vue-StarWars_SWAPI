@@ -16,30 +16,34 @@
 </template>
 
 <script>
-  export default {
-    name: 'Starships',
-    data: () => ({
-      starships: [],
-      search: "",
-    }),
+export default {
+  name: "Starships",
+  data: () => ({
+    starships: [],
+    search: ""
+  }),
 
-    mounted() {
-      fetch(`https://swapi.co/api/films/${this.$route.params.id}`)
-        .then(response => response.json())
-        .then(result => result.starships.forEach(x => {
+  mounted() {
+    fetch(`https://swapi.dev/api/films/${this.$route.params.id}`)
+      .then(response => response.json())
+      .then(result =>
+        result.starships.forEach(x => {
           fetch(x)
-          .then(response => response.json())
-          .then(result => this.starships.push(result)
-        )}))
-    },
-    computed: {
-      filteredList() {
-        return this.starships.filter(starship => starship.name.toLowerCase().includes(this.search.toLowerCase().trim()))
-      }
+            .then(response => response.json())
+            .then(result => this.starships.push(result));
+        })
+      );
+  },
+  computed: {
+    filteredList() {
+      return this.starships.filter(starship =>
+        starship.name.toLowerCase().includes(this.search.toLowerCase().trim())
+      );
     }
   }
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '../styles/search'
- </style>
+@import '../styles/search'
+</style>

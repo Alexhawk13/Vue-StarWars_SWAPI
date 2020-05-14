@@ -8,12 +8,11 @@
 
 <script>
 export default {
-  name: 'Header',
-}
+  name: "Header"
+};
 </script>
 
 <style lang="css" scoped>
-
 .v-toolbar {
   flex: none;
 }
@@ -29,8 +28,8 @@ export default {
   border-right: 1px solid white;
 }
 
-a:hover{
-  background-color: white;
-  transition: .5s;
+a:hover {
+  background-color: #9dd7e0;
+  transition: 0.5s;
 }
 </style>

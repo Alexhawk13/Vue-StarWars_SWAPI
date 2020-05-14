@@ -16,30 +16,34 @@
 </template>
 
 <script>
-  export default {
-    name: 'Planets',
-    data: () => ({
-      planets: [],
-      search: "",
-    }),
+export default {
+  name: "Planets",
+  data: () => ({
+    planets: [],
+    search: ""
+  }),
 
-    mounted() {
-      fetch(`https://swapi.co/api/films/${this.$route.params.id}`)
-        .then(response => response.json())
-        .then(result => result.planets.forEach(x => {
+  mounted() {
+    fetch(`https://swapi.dev/api/films/${this.$route.params.id}`)
+      .then(response => response.json())
+      .then(result =>
+        result.planets.forEach(x => {
           fetch(x)
-          .then(response => response.json())
-          .then(result => this.planets.push(result)
-        )}))
-    },
-    computed: {
-      filteredList() {
-        return this.planets.filter(planet => planet.name.toLowerCase().includes(this.search.toLowerCase().trim()))
-      }
+            .then(response => response.json())
+            .then(result => this.planets.push(result));
+        })
+      );
+  },
+  computed: {
+    filteredList() {
+      return this.planets.filter(planet =>
+        planet.name.toLowerCase().includes(this.search.toLowerCase().trim())
+      );
     }
   }
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '../styles/search'
- </style>
+@import '../styles/search'
+</style>
