@@ -25,7 +25,6 @@ export default {
   text-decoration: none;
   font-weight: 500;
   margin-left: -22%;
-  border-right: 1px solid white;
 }
 
 a:hover {
