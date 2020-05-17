@@ -1,7 +1,10 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <input class="search" v-model="search"  placeholder="Search planet..">
+      <form><input class="search" v-model="search"  placeholder="Search planet..">
+        <i class="fa fa-search"></i>
+      </form>
+      
       <v-row>
         <v-col cols="6" md="3" v-for="(planet, index) in filteredList" :key="planet.name">
           <img

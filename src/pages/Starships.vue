@@ -1,7 +1,10 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <input class="search" v-model="search"  placeholder="Search starship..">
+      <form><input class="search" v-model="search"  placeholder="Search starship..">
+        <i class="fa fa-search"></i>
+      </form>
+      
       <v-row>
         <v-col cols="6" md="3" v-for="(starship, index) in filteredList" :key="starship.name">
         <object :data="`https://starwars-visualguide.com/assets/img/vehicles/${index + 1}.jpg`"

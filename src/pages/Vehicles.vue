@@ -1,7 +1,9 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <input class="search" v-model="search" placeholder="Search vehicle..">
+      <form><input class="search" v-model="search" placeholder="Search vehicle..">
+        <i class="fa fa-search"></i>
+      </form>
       <v-row>
         <v-col cols="6" md="3" v-for="(vehicle, index) in filteredList" :key="vehicle.name">
           <object :data="`https://starwars-visualguide.com/assets/img/vehicles/${index + 1}.jpg`" type="image/jpg"
@@ -32,8 +34,7 @@
               .then(response => response.json())
               .then(result => this.vehicles.push(result));
           }))
-    }
-      ,
+    },
     computed: {
       filteredList() {
         return this.vehicles.filter(vehicle =>

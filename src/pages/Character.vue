@@ -1,7 +1,9 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <input class="search" v-model="search"  placeholder="Search character..">
+      <form><input class="search" v-model="search"  placeholder="Search character..">
+        <i class="fa fa-search"></i>
+      </form>
       <v-row>
         <v-col cols="4" md="3" v-for="(character, index) in filteredList" :key="character.name">
           <object :data="`https://starwars-visualguide.com/assets/img/characters/${index+1}.jpg`"

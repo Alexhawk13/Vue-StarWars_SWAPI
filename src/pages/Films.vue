@@ -1,7 +1,10 @@
 <template lang="html">
   <div class="wrapper">
     <v-container class="grey lighten-5">
-        <input id="search" class="search" type="search" v-model="search" placeholder="Search movie..">
+        <form action="">
+          <input id="search" class="search" type="search" v-model="search" placeholder="Search movie.."  autocomplete="off">
+          <i class="fa fa-search"></i>
+        </form>
       <v-row>
         <v-col class="singleMovie" cols="6" md="3" v-for="film in filteredList" :key="film.id">
         <router-link class="black--text" :to="{name: 'SingleFilm', params: { id: film.id }}">

@@ -1,9 +1,7 @@
 <template lang="html">
-    <v-toolbar style="background-color: black">
-      <v-toolbar-items>
-        <router-link class="nav_link" :to="{ name: 'Home', params: {} }">Home</router-link>
-      </v-toolbar-items>
-    </v-toolbar>
+  <div class= "wrapper">
+    <router-link class="nav_link" :to="{ name: 'Home', params: {} }">Home</router-link>
+  </div>
 </template>
 
 <script>
@@ -13,22 +11,27 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.v-toolbar {
-  flex: none;
+.wrapper {
+  position: fixed;
+  /* width: 100%; */
+  z-index: 0;
+
+  background-color: black;
 }
 
 .nav_link {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 21px;
+  padding: 20px;
   text-decoration: none;
   font-weight: 500;
-  margin-left: -22%;
+  transition: 0.6s;
+  z-index: 3;
 }
 
-a:hover {
-  background-color: #9dd7e0;
-  transition: 0.5s;
+.nav_link:hover {
+  background-color: #1976d2;
+  color: black;
 }
 </style>
