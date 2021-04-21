@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <form><input class="search" v-model="search" placeholder="Search vehicle..">
-        <i class="fa fa-search"></i>
+      <form :class="{active : isActive}"><input class="search" v-model="search"  placeholder="Search for a vehicle..">
+        <i @click="active()" class="fa fa-search"></i>
       </form>
       <v-row>
         <v-col cols="6" md="3" v-for="(vehicle, index) in filteredList" :key="vehicle.name">
@@ -22,7 +22,8 @@
     name: "Vehicles",
     data: () => ({
       vehicles: [],
-      search: ""
+      search: "",
+      isActive: false,
     }),
 
     mounted() {
@@ -41,10 +42,15 @@
           vehicle.name.toLowerCase().includes(this.search.toLowerCase().trim())
         )
       }
+    },
+    methods: {
+    active() {
+      this.isActive = !this.isActive;
     }
+  },
   }
 </script>
 
-<style lang="sass" scoped>
-  @import '../styles/search'
+<style lang="scss" scoped>
+  @import '../styles/search';
 </style>

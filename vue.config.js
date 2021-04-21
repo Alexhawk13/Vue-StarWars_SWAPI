@@ -1,5 +1,5 @@
-module.exports = {
-  "transpileDependencies": [
-    "vuetify"
-  ]
-}
+// export default {
+//   "transpileDependencies": [
+//     "vuetify"
+//   ]
+// }

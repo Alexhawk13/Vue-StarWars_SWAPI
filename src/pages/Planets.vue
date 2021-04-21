@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <v-container class="grey lighten-5">
-      <form><input class="search" v-model="search"  placeholder="Search planet..">
-        <i class="fa fa-search"></i>
+      <form :class="{active : isActive}"><input class="search" v-model="search"  placeholder="Search planet..">
+        <i @click="active()" class="fa fa-search"></i>
       </form>
       
       <v-row>
@@ -23,7 +23,8 @@ export default {
   name: "Planets",
   data: () => ({
     planets: [],
-    search: ""
+    search: "",
+    isActive: false,
   }),
 
   mounted() {
@@ -37,6 +38,11 @@ export default {
         })
       );
   },
+  methods: {
+    active() {
+      this.isActive = !this.isActive;
+    }
+  },
   computed: {
     filteredList() {
       return this.planets.filter(planet =>
@@ -47,6 +53,11 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-@import '../styles/search'
+<style lang="scss" scoped>
+@import '../styles/search';
+.v-application .grey.lighten-5 {
+  background-color:  #383970 !important;
+}
+
+
 </style>

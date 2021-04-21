@@ -1,6 +1,6 @@
 <template lang="html">
   <div class= "wrapper">
-    <router-link class="nav_link" :to="{ name: 'Home', params: {} }">Home</router-link>
+    <router-link class="nav-link" :to="{ name: 'Home', params: {} }">Home</router-link>
   </div>
 </template>
 
@@ -13,13 +13,11 @@ export default {
 <style lang="css" scoped>
 .wrapper {
   position: fixed;
-  /* width: 100%; */
   z-index: 0;
-
   background-color: black;
 }
 
-.nav_link {
+.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +28,7 @@ export default {
   z-index: 3;
 }
 
-.nav_link:hover {
+.nav-link:hover {
   background-color: #1976d2;
   color: black;
 }

@@ -23,3 +23,9 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+  #app {
+    background-color:  #383970 !important;
+  }
+</style>
